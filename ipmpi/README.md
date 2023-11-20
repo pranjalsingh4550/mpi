@@ -1,0 +1,5 @@
+- Large sections of the code have been commented. The current version of IPMPI works for the scripts in `ipmpi-analysis/`.
+- The first model, based on historical data works for power-of-2 sized messages.
+- You will need to change the paths to CSVs containing medians in `ipmpi.cpp`
+- `helper.cpp` has been modified (lines ending in `// pranjal`). Currently, it profiles broadcast correctly when the number of processes is a power of two.
+- IPMPI can be compiled using the instructions in Shivam's repository.

@@ -1,0 +1,5 @@
+- This directory contains the programs and scripts used to time, model and plot point-to-point messages.
+- Each script/program contains a brief description.
+- `test_csews_nodes` checks which nodes in the CSEWS cluster are live be sending MPI messages.
+- `random*.sh` were used earlier to time point-to-point messages. The model uses different scripts present in `./historical-data/`.
+- `internode` and `intranode` contain the output of `random*.sh`. These were used to study the Hockney model. Many files in these directories have been removed as they collectively run into 1 MB.

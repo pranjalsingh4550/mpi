@@ -1,0 +1,24 @@
+Run the ipmpi-setup.sh script
+observations - binary doubling used in allgather for 2^16 = 65536 or more bytes
+65535,0.003581
+65536,0.003989
+
+Broadcast always uses binomial tree for intranode, 4 procs
+
+alltoall always uses individual n^2 messages
+
+internode:
+	alltoall
+		0-256 B - no profile
+		257 onwards - individual messages
+		the 0,0th entry of comm sum matrix is -1 for 70k and 60k for 30k
+	
+	allgather -
+		recursive algorithm for 300B
+		recursive for 0xffff B
+		neighbour-to-neighbour for 0x10000 to 30M
+	
+	bcast
+		scatter + recursive allgather for 0x3000 B 12kB to 0x7ffff < 512 kB -- for 8x1, 8x2, 8x4
+		scatter + ring allgather for 512kB = 2^19 B -- for 8x1, 8x2, 8x4
+		binomial tree for 0x2FFF

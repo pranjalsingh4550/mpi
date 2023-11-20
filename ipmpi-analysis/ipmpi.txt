@@ -1,0 +1,31 @@
+comm_matrix_sum, comm_matrix_max, comm_matrix_min, p2p_mat - 2D arrays
+comm_matrix_count - 3D array
+log_calls, log_calls_w_cs - string-to-int map
+sends(string, int, int) -> int
+
+reset_comm_matrix (): comm_matrix[][] is reset to comm_size*comm_size array of value
+reset_count_matrix - similar but is a 3d array
+
+populateCommMatrix - fills char* s with the values in comm_matrix
+populateCountMatrix - makes the [i] [j] [k] 0 0 0 3 0 0 0 text file
+updateCommMatrix:
+	sends[parent_func][][] ++ ; // what is parent_func
+	update sum matrix, max, min matrices
+	update comm_matrix_count[src][dst][#BINs] ++
+comm_steps - 3d array
+sr_calls
+send_calls
+getFunc -- ? where is it called?
+
+logging, logging_dst - ? what is backtrace ?
+initBinSize - roughly atoi (). where is it called ? 
+
+Init ()
+	initBinSize (getenv (BIN_SIZE)) ;
+	reset_comm_matrix (max, min, sum, count, p2p )
+	median_array - made by me
+MPI_Init_thread () - where is it called?
+
+MPI_Finalize ()
+	makes info files with lists of sr, sends, something
+	populateCommMatrix ()
